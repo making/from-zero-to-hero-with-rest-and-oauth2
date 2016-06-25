@@ -1,8 +1,7 @@
 package com.example;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Message {
@@ -10,4 +9,6 @@ public class Message {
     @GeneratedValue
     public Integer id;
     public String text;
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date createdAt;
 }
