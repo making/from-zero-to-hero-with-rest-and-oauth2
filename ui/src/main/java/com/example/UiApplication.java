@@ -28,7 +28,7 @@ public class UiApplication {
 	@RequestMapping(path = "/", method = RequestMethod.GET)
 	String home(Model model) {
 		@SuppressWarnings("unchecked")
-		Resources<Message> messages = restTemplate.getForObject(messageApi, Resources.class);
+		Resources<Message> messages = restTemplate.getForObject(messageApi + "?sort=createdAt,DESC", Resources.class);
 		model.addAttribute("messages", messages.getContent());
 		return "index";
 	}
