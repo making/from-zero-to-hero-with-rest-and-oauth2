@@ -27,7 +27,7 @@ public class AuthorizationApplication {
 
 	@RequestMapping(path = "/userinfo", method = RequestMethod.GET)
 	Object userinfo(Authentication authentication) {
-		return authentication.getPrincipal();
+		return authentication;
 	}
 
 	@Configuration
