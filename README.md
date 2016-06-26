@@ -201,6 +201,8 @@ server.port=18081
 server.context-path=/uaa
 ``` 
 
+> `server.context-path` is necessary if we are going to run the authorization server and Client on the same host, otherwise browsers maybe confused about the `JSESSIONID` cookie
+
 ----
 
 ### Run application ([`02-01`](https://github.com/Pivotal-Japan/from-zero-to-hero-with-rest-and-oauth2/tree/02-01))
