@@ -66,21 +66,21 @@ server.port=18080
 
 #### Run application ([`01-01`](https://github.com/Pivotal-Japan/from-zero-to-hero-with-rest-and-oauth2/tree/01-01))
 
-http://localhost:18080/
+[http://localhost:18080/](http://localhost:18080/)
 
 * HAL
-    * http://stateless.co/hal_specification.html 
-    * https://tools.ietf.org/html/draft-kelly-json-hal-06
+    * [http://stateless.co/hal_specification.html](http://stateless.co/hal_specification.html )
+    * [https://tools.ietf.org/html/draft-kelly-json-hal-06](https://tools.ietf.org/html/draft-kelly-json-hal-06)
 * ALPS
-    * http://alps.io/spec/
-    * https://spring.io/blog/2014/07/14/spring-data-rest-now-comes-with-alps-metadata
+    * [http://alps.io/spec/](http://alps.io/spec/)
+    * [https://spring.io/blog/2014/07/14/spring-data-rest-now-comes-with-alps-metadata](https://spring.io/blog/2014/07/14/spring-data-rest-now-comes-with-alps-metadata)
 * POST a sample data
 
 ``` bash
 curl http://localhost:18080/messages -H "Content-Type:application/json" -d '{"text" : "Hello World!"}'
 ```
 
-http://localhost:18080/messages
+[http://localhost:18080/messages](http://localhost:18080/messages)
 
 ----
 
@@ -95,7 +95,7 @@ http://localhost:18080/messages
 
 Restart
 
-http://localhost:18080/
+[http://localhost:18080/](http://localhost:18080/)
 
 ----
 
@@ -112,6 +112,7 @@ public interface MessageRepository extends PagingAndSortingRepository<Message, I
 ```
 
 Try sort
+[http://localhost:18080/messages?sort=text,DESC](http://localhost:18080/messages?sort=text,DESC)
 
 ----
 
@@ -295,7 +296,6 @@ public class ResourceApplication {
 ``` properties
 server.port=18080
 security.oauth2.resource.user-info-uri=http://localhost:18081/uaa/userinfo
-logging.level.org.springframework.web.client.RestTemplate=DEBUG
 ```
 
 ``` bash
@@ -471,7 +471,7 @@ security.oauth2.client.user-authorization-uri=${auth-server}/oauth/authorize
 security.oauth2.resource.user-info-uri=${auth-server}/userinfo
 ```
 
-http://localhost:8080
+[http://localhost:8080](http://localhost:8080)
 
 ----
 
@@ -765,6 +765,9 @@ jwt:
     -----END RSA PRIVATE KEY-----
 ```
 
+Check token key endpoint
+[http://localhost:18081/uaa/oauth/token_key](http://localhost:18081/uaa/oauth/token_key)
+
 ----
 
 ### Support JWT for OAuth Clients ([`05-02`](https://github.com/Pivotal-Japan/from-zero-to-hero-with-rest-and-oauth2/tree/05-02))
@@ -788,6 +791,8 @@ security.oauth2.resource.jwt.key-uri=http://localhost:18081/uaa/oauth/token_key
 
 ## Use "Maki-UAA" as Authorization Server
 
+Use [Maki-UAA](https://github.com/maki-home/uaa)
+
 ``` bash
 git clone https://github.com/maki-home/uaa.git
 cd uaa
@@ -795,7 +800,7 @@ mvn package -DskipTests=true
 java -jar target/uaa-0.0.1-SNAPSHOT.jar --server.port=18081
 ```
 
-http://localhost:18081/uaa/
+[http://localhost:18081/uaa/](http://localhost:18081/uaa/)
 
 `maki@example.com` / `demo`
 
@@ -915,3 +920,9 @@ zuul.routes.message.url=http://localhost:18080/messages
 </body>
 </html>
 ```
+
+### Use Cloud Foundry UAA as Authorization Server
+
+[https://github.com/cloudfoundry/uaa](https://github.com/cloudfoundry/uaa) is a *battle-tested* authorization server.
+
+
