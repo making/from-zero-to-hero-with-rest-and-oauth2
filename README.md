@@ -54,7 +54,7 @@ server.port=18080
 ----
 
 
-#### Run application ([`01-02`](https://github.com/making/jjug-night-seminar-spring-boot/tree/01-02))
+#### Run application ([`01-01`](https://github.com/making/jjug-night-seminar-spring-boot/tree/01-01))
 
 http://localhost:18080/
 
