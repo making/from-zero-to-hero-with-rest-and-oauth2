@@ -1,11 +1,8 @@
+# From Zero to Hero with REST and OAuth2
 
-## Project作成
+## Create Resource Server
 
-新しいディレクトリを作成して、Empty Project作成
-
-----
-
-## Resource Server作成
+Choose
 
 * spring-boot-starter-data-jpa
 * spring-boot-starter-data-rest
@@ -14,7 +11,7 @@
 
 ----
 
-### Messageクラス作成
+### Create `Message`
 
 ``` java
 package com.example;
@@ -34,7 +31,7 @@ public class Message {
 
 ----
 
-### MessageRepositoryクラス作成
+### Create `MessageRepository`
 
 ``` java
 package com.example;
@@ -48,7 +45,7 @@ public interface MessageRepository extends CrudRepository<Message, Integer> {
 
 ----
 
-### サーバーのポート変更
+### Change server port
 
 ``` properties
 server.port=18080
@@ -57,7 +54,7 @@ server.port=18080
 ----
 
 
-#### アプリケーション実行([`01-02`](https://github.com/making/jjug-night-seminar-spring-boot/tree/01-02))
+#### Run application ([`01-02`](https://github.com/making/jjug-night-seminar-spring-boot/tree/01-02))
 
 http://localhost:18080/
 
@@ -67,7 +64,7 @@ http://localhost:18080/
 * ALPS
     * http://alps.io/spec/
     * https://spring.io/blog/2014/07/14/spring-data-rest-now-comes-with-alps-metadata
-* サンプルデータをPOST
+* POST a sample data
 
 ``` bash
 curl http://localhost:18080/messages -H "Content-Type:application/json" -d '{"text" : "Hello World!"}'
@@ -86,13 +83,13 @@ http://localhost:18080/messages
 		</dependency>
 ```
 
-再起動して
+Restart
 
 http://localhost:18080/
 
 ----
 
-### PagingRespoitory([`01-03`](https://github.com/making/jjug-night-seminar-spring-boot/tree/01-03))
+### Apply `PagingRespoitory` ([`01-03`](https://github.com/making/jjug-night-seminar-spring-boot/tree/01-03))
 
 ``` java
 package com.example;
@@ -104,12 +101,12 @@ public interface MessageRepository extends PagingAndSortingRepository<Message, I
 
 ```
 
-ソートのデモ
+Try sort
 
 ----
 
 
-### MessageEventHandlerクラスの作成([`01-04`](https://github.com/making/jjug-night-seminar-spring-boot/tree/01-04))
+### Create `MessageEventHandler` ([`01-04`](https://github.com/making/jjug-night-seminar-spring-boot/tree/01-04))
 
 
 ``` java
@@ -152,7 +149,9 @@ public class MessageEventHandler {
 
 ----
 
-## Authorization Server作成
+## Create Authorization Server
+
+Choose
 
 * cloud oauth2
 * devtools
@@ -180,7 +179,7 @@ public class AuthorizationApplication {
 
 ----
 
-### 諸々設定
+### Configuration
 
 ``` properties
 security.oauth2.client.client-id=demo
@@ -194,7 +193,7 @@ server.context-path=/uaa
 
 ----
 
-### アプリケーション実行([`02-01`](https://github.com/making/jjug-night-seminar-spring-boot/tree/02-01))
+### Run application ([`02-01`](https://github.com/making/jjug-night-seminar-spring-boot/tree/02-01))
 
 ``` bash
 curl -u demo:demo http://localhost:18081/uaa/oauth/token -d grant_type=password -d username=user -d password=password
@@ -202,7 +201,7 @@ curl -u demo:demo http://localhost:18081/uaa/oauth/token -d grant_type=password 
 
 ----
 
-### `/userinfo`エンドポイント([`02-02`](https://github.com/making/jjug-night-seminar-spring-boot/tree/02-02))
+### Create `/userinfo` endpoint ([`02-02`](https://github.com/making/jjug-night-seminar-spring-boot/tree/02-02))
 
 ``` java
 package com.example;
@@ -233,7 +232,7 @@ public class AuthorizationApplication {
 }
 ```
 
-再起動して
+Restart
 
 ``` bash
 curl http://localhost:18081/uaa/userinfo -H 'Authorization: Bearer <token>'
@@ -241,7 +240,7 @@ curl http://localhost:18081/uaa/userinfo -H 'Authorization: Bearer <token>'
 
 ----
 
-### Resource Serverのセキュア化([`02-03`](https://github.com/making/jjug-night-seminar-spring-boot/tree/02-03))
+### Secure Resource Server([`02-03`](https://github.com/making/jjug-night-seminar-spring-boot/tree/02-03))
 
 ``` xml
 	<dependencyManagement>
@@ -300,7 +299,7 @@ curl http://localhost:18080/messages -H 'Authorization: Bearer <token>'
 ----
 
 
-### `username`フィールド追加([`02-04`](https://github.com/making/jjug-night-seminar-spring-boot/tree/02-04))
+### Add `username` field ([`02-04`](https://github.com/making/jjug-night-seminar-spring-boot/tree/02-04))
 
 ``` java
 package com.example;
@@ -348,7 +347,9 @@ curl http://localhost:18080/messages -H "Content-Type:application/json" -d '{"te
 
 ----
 
-## UIサーバー作成
+## Create UI Server
+
+Choose
 
 * web
 * thymeleaf
@@ -358,7 +359,7 @@ curl http://localhost:18080/messages -H "Content-Type:application/json" -d '{"te
 
 ----
 
-### UIサーバー作成([`03-01`](https://github.com/making/jjug-night-seminar-spring-boot/tree/03-01))
+### Create UI Server ([`03-01`](https://github.com/making/jjug-night-seminar-spring-boot/tree/03-01))
 
 ``` java
 package com.example;
@@ -462,7 +463,7 @@ http://localhost:8080
 
 ----
 
-### Authorization Serverにログインフォーム作成([`03-02`](https://github.com/making/jjug-night-seminar-spring-boot/tree/03-02))
+### Create Login Form in Authorization Server ([`03-02`](https://github.com/making/jjug-night-seminar-spring-boot/tree/03-02))
 
 ``` java
 package com.example;
@@ -575,7 +576,7 @@ public class AuthorizationApplication {
 
 ----
 
-## Authorization ServerとしてGitHub APIを使う([`04-01`](https://github.com/making/jjug-night-seminar-spring-boot/tree/04-01))
+## Use GitHub API as Authorization Server ([`04-01`](https://github.com/making/jjug-night-seminar-spring-boot/tree/04-01))
 
 ``` properties
 auth-server=https://github.com/login
@@ -594,11 +595,11 @@ security.oauth2.resource.user-info-uri=https://api.github.com/user
 
 ----
 
-## JWT対応
+## Support JWT
 
 ----
 
-### Autorization ServerのJWT対応([`05-01`](https://github.com/making/jjug-night-seminar-spring-boot/tree/05-01))
+### Support JWT for Autorization Server ([`05-01`](https://github.com/making/jjug-night-seminar-spring-boot/tree/05-01))
 
 ``` java
 package com.example;
@@ -696,7 +697,7 @@ public class AuthorizationApplication extends AuthorizationServerConfigurerAdapt
 }
 ```
 
-`application.properties`を削除して`application.yml`を作成
+Remove `application.properties` and create `application.yml`
 
 ``` yaml
 security.user.password: password
@@ -747,7 +748,7 @@ jwt:
 
 ----
 
-### ClientのJWT対応([`05-02`](https://github.com/making/jjug-night-seminar-spring-boot/tree/05-02))
+### Support JWT for OAuth Clients ([`05-02`](https://github.com/making/jjug-night-seminar-spring-boot/tree/05-02))
 
 ``` properties
 auth-server=http://localhost:18081/uaa
@@ -764,7 +765,9 @@ server.port=18080
 security.oauth2.resource.jwt.key-uri=http://localhost:18081/uaa/oauth/token_key
 ```
 
-## Maki-UAA
+----
+
+## Use "Maki-UAA" as Authorization Server
 
 ``` bash
 git clone https://github.com/maki-home/uaa.git
@@ -776,3 +779,116 @@ java -jar target/uaa-0.0.1-SNAPSHOT.jar --server.port=18081
 http://localhost:18081/uaa/
 
 `maki@example.com` / `demo`
+
+---
+
+## Zuul integration using Ajax([`06-01`](https://github.com/making/jjug-night-seminar-spring-boot/tree/06-01))
+
+### Embedd Zuul Proxy
+
+``` xml
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zuul</artifactId>
+		</dependency>
+```
+
+``` java
+package com.example;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@SpringBootApplication
+@EnableOAuth2Sso
+@EnableZuulProxy
+@Controller
+public class UiApplication {
+
+	@RequestMapping(path = "/", method = RequestMethod.GET)
+	String home(Model model) {
+		return "index";
+	}
+
+	public static void main(String[] args) {
+		SpringApplication.run(UiApplication.class, args);
+	}
+}
+```
+
+### Add routing
+
+``` properties
+auth-server=http://localhost:18081/uaa
+security.oauth2.client.client-id=demo
+security.oauth2.client.client-secret=demo
+security.oauth2.client.scope=openid
+security.oauth2.client.access-token-uri=${auth-server}/oauth/token
+security.oauth2.client.user-authorization-uri=${auth-server}/oauth/authorize
+security.oauth2.resource.jwt.key-uri=${auth-server}/oauth/token_key
+zuul.routes.message.path=/api/messages/**
+zuul.routes.message.url=http://localhost:18080/messages
+```
+
+### Support Ajax
+
+``` html
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>OAuth2 SSO Demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/css/uikit.gradient.min.css"/>
+</head>
+
+<body>
+
+<div class="uk-grid">
+    <div class="uk-width-1-5"></div>
+    <div class="uk-width-3-5">
+        <h1>Demo</h1>
+        <p>Logged in as: <span th:text="${#httpServletRequest.remoteUser}">demo</span></p>
+        <form th:action="@{/messages}" class="uk-panel uk-panel-box uk-form" method="post"
+              onsubmit="return postMessage(this);">
+            <input class="uk-form-large" type="text" name="text" placeholder="Message"/>
+            <button class="uk-button uk-button-primary uk-button-large">Send</button>
+        </form>
+        <h2>Messages</h2>
+        <div id="messages"></div>
+    </div>
+    <div class="uk-width-1-5"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/1.2.0/superagent.js"></script>
+    <script>
+        var request = window.superagent;
+        document.addEventListener('DOMContentLoaded', function () {
+            request.get('/api/messages')
+                    .query({'sort': 'createdAt,DESC'})
+                    .end(function (err, res) {
+                        document.getElementById('messages').innerHTML = JSON.parse(res.text)._embedded.messages.map(rowTemplate).join('');
+                    });
+        }, false);
+        function postMessage(form) {
+            request.post('/api/messages')
+                    .set('X-CSRF-TOKEN', form._csrf.value)
+                    .send({text: form.text.value})
+                    .end(function (err, res) {
+                        var current = document.getElementById('messages').innerHTML;
+                        document.getElementById('messages').innerHTML = rowTemplate(JSON.parse(res.text)) + current;
+                        form.text.value = '';
+                    });
+            return false;
+        }
+        function rowTemplate(message) {
+            return '<div class="uk-panel uk-panel-box"><h3 class="uk-panel-title">' + message.username + ' @ ' + message.createdAt + '</h3>' + message.text + '</div><br />';
+        }
+    </script>
+</div>
+</body>
+</html>
+```
