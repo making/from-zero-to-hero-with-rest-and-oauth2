@@ -477,6 +477,13 @@ http://localhost:8080
 
 ### Create Login Form in Authorization Server ([`03-02`](https://github.com/Pivotal-Japan/from-zero-to-hero-with-rest-and-oauth2/tree/03-02))
 
+``` xml
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+```
+
 ``` java
 package com.example;
 
