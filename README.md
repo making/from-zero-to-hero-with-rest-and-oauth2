@@ -54,7 +54,7 @@ server.port=18080
 ----
 
 
-#### Run application ([`01-01`](https://github.com/making/jjug-night-seminar-spring-boot/tree/01-01))
+#### Run application ([`01-01`](https://github.com/Pivotal-Japan/from-zero-to-hero-with-rest-and-oauth2/tree/01-01))
 
 http://localhost:18080/
 
@@ -74,7 +74,7 @@ http://localhost:18080/messages
 
 ----
 
-### HAL Browser([`01-02`](https://github.com/making/jjug-night-seminar-spring-boot/tree/01-02))
+### HAL Browser([`01-02`](https://github.com/Pivotal-Japan/from-zero-to-hero-with-rest-and-oauth2/tree/01-02))
 
 ``` xml
 		<dependency>
@@ -89,7 +89,7 @@ http://localhost:18080/
 
 ----
 
-### Apply `PagingRespoitory` ([`01-03`](https://github.com/making/jjug-night-seminar-spring-boot/tree/01-03))
+### Apply `PagingRespoitory` ([`01-03`](https://github.com/Pivotal-Japan/from-zero-to-hero-with-rest-and-oauth2/tree/01-03))
 
 ``` java
 package com.example;
@@ -106,7 +106,7 @@ Try sort
 ----
 
 
-### Create `MessageEventHandler` ([`01-04`](https://github.com/making/jjug-night-seminar-spring-boot/tree/01-04))
+### Create `MessageEventHandler` ([`01-04`](https://github.com/Pivotal-Japan/from-zero-to-hero-with-rest-and-oauth2/tree/01-04))
 
 
 ``` java
@@ -193,7 +193,7 @@ server.context-path=/uaa
 
 ----
 
-### Run application ([`02-01`](https://github.com/making/jjug-night-seminar-spring-boot/tree/02-01))
+### Run application ([`02-01`](https://github.com/Pivotal-Japan/from-zero-to-hero-with-rest-and-oauth2/tree/02-01))
 
 ``` bash
 curl -u demo:demo http://localhost:18081/uaa/oauth/token -d grant_type=password -d username=user -d password=password
@@ -201,7 +201,7 @@ curl -u demo:demo http://localhost:18081/uaa/oauth/token -d grant_type=password 
 
 ----
 
-### Create `/userinfo` endpoint ([`02-02`](https://github.com/making/jjug-night-seminar-spring-boot/tree/02-02))
+### Create `/userinfo` endpoint ([`02-02`](https://github.com/Pivotal-Japan/from-zero-to-hero-with-rest-and-oauth2/tree/02-02))
 
 ``` java
 package com.example;
@@ -240,7 +240,7 @@ curl http://localhost:18081/uaa/userinfo -H 'Authorization: Bearer <token>'
 
 ----
 
-### Secure Resource Server([`02-03`](https://github.com/making/jjug-night-seminar-spring-boot/tree/02-03))
+### Secure Resource Server([`02-03`](https://github.com/Pivotal-Japan/from-zero-to-hero-with-rest-and-oauth2/tree/02-03))
 
 ``` xml
 	<dependencyManagement>
@@ -299,7 +299,7 @@ curl http://localhost:18080/messages -H 'Authorization: Bearer <token>'
 ----
 
 
-### Add `username` field ([`02-04`](https://github.com/making/jjug-night-seminar-spring-boot/tree/02-04))
+### Add `username` field ([`02-04`](https://github.com/Pivotal-Japan/from-zero-to-hero-with-rest-and-oauth2/tree/02-04))
 
 ``` java
 package com.example;
@@ -359,7 +359,7 @@ Choose
 
 ----
 
-### Create UI Server ([`03-01`](https://github.com/making/jjug-night-seminar-spring-boot/tree/03-01))
+### Create UI Server ([`03-01`](https://github.com/Pivotal-Japan/from-zero-to-hero-with-rest-and-oauth2/tree/03-01))
 
 ``` java
 package com.example;
@@ -463,7 +463,7 @@ http://localhost:8080
 
 ----
 
-### Create Login Form in Authorization Server ([`03-02`](https://github.com/making/jjug-night-seminar-spring-boot/tree/03-02))
+### Create Login Form in Authorization Server ([`03-02`](https://github.com/Pivotal-Japan/from-zero-to-hero-with-rest-and-oauth2/tree/03-02))
 
 ``` java
 package com.example;
@@ -576,7 +576,7 @@ public class AuthorizationApplication {
 
 ----
 
-## Use GitHub API as Authorization Server ([`04-01`](https://github.com/making/jjug-night-seminar-spring-boot/tree/04-01))
+## Use GitHub API as Authorization Server ([`04-01`](https://github.com/Pivotal-Japan/from-zero-to-hero-with-rest-and-oauth2/tree/04-01))
 
 ``` properties
 auth-server=https://github.com/login
@@ -599,7 +599,7 @@ security.oauth2.resource.user-info-uri=https://api.github.com/user
 
 ----
 
-### Support JWT for Autorization Server ([`05-01`](https://github.com/making/jjug-night-seminar-spring-boot/tree/05-01))
+### Support JWT for Autorization Server ([`05-01`](https://github.com/Pivotal-Japan/from-zero-to-hero-with-rest-and-oauth2/tree/05-01))
 
 ``` java
 package com.example;
@@ -748,7 +748,7 @@ jwt:
 
 ----
 
-### Support JWT for OAuth Clients ([`05-02`](https://github.com/making/jjug-night-seminar-spring-boot/tree/05-02))
+### Support JWT for OAuth Clients ([`05-02`](https://github.com/Pivotal-Japan/from-zero-to-hero-with-rest-and-oauth2/tree/05-02))
 
 ``` properties
 auth-server=http://localhost:18081/uaa
@@ -782,7 +782,7 @@ http://localhost:18081/uaa/
 
 ----
 
-## Zuul integration using Ajax([`06-01`](https://github.com/making/jjug-night-seminar-spring-boot/tree/06-01))
+## Zuul integration using Ajax([`06-01`](https://github.com/Pivotal-Japan/from-zero-to-hero-with-rest-and-oauth2/tree/06-01))
 
 ### Embedd Zuul Proxy
 
