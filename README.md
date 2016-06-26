@@ -780,7 +780,7 @@ http://localhost:18081/uaa/
 
 `maki@example.com` / `demo`
 
----
+----
 
 ## Zuul integration using Ajax([`06-01`](https://github.com/making/jjug-night-seminar-spring-boot/tree/06-01))
 
@@ -822,6 +822,8 @@ public class UiApplication {
 }
 ```
 
+----
+
 ### Add routing
 
 ``` properties
@@ -835,6 +837,8 @@ security.oauth2.resource.jwt.key-uri=${auth-server}/oauth/token_key
 zuul.routes.message.path=/api/messages/**
 zuul.routes.message.url=http://localhost:18080/messages
 ```
+
+----
 
 ### Support Ajax
 
