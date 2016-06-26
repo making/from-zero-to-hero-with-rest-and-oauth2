@@ -1,5 +1,15 @@
 # From Zero to Hero with REST and OAuth2
 
+TOC:
+
+1. [Create Resource Server](#create-resource-server)
+1. [Create Authorization Server](#create-authorization-server)
+1. [Create UI Server](#create-ui-server)
+1. [Use GitHub API as Authorization Server](#use-github-api-as-authorization-server-04-01)
+1. [Support JWT](#support-jwt)
+1. [Use "Maki-UAA" as Authorization Server](#use-maki-uaa-as-authorization-server)
+1. [Zuul integration using Ajax](#zuul-integration-using-ajax06-01)
+
 ## Create Resource Server
 
 Choose
