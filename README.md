@@ -99,7 +99,7 @@ Restart
 
 ----
 
-### Apply `PagingRespoitory` ([`01-03`](https://github.com/Pivotal-Japan/from-zero-to-hero-with-rest-and-oauth2/tree/01-03))
+### Apply `PagingAndSortingRepository` ([`01-03`](https://github.com/Pivotal-Japan/from-zero-to-hero-with-rest-and-oauth2/tree/01-03))
 
 ``` java
 package com.example;
