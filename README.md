@@ -10,6 +10,8 @@ TOC:
 1. [Use "Maki-UAA" as Authorization Server](#use-maki-uaa-as-authorization-server)
 1. [Zuul integration using Ajax](#zuul-integration-using-ajax06-01)
 
+[Slide](http://www.slideshare.net/makingx/from-zero-to-hero-with-rest-and-oauth2-jjug)
+
 ## Create Resource Server
 
 Choose
